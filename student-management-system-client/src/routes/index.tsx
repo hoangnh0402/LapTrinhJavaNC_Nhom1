@@ -82,7 +82,7 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: (
-          <ProtectedRoute allowedRoles={[Role.STUDENT, Role.ADMIN]}>
+          <ProtectedRoute allowedRoles={[Role.STUDENT]}>
             <Suspense fallback={<Loading />}>
               <RegisterSubject />
             </Suspense>
