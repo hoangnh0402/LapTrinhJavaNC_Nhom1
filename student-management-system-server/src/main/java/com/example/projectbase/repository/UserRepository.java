@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -27,5 +28,10 @@ public interface UserRepository extends JpaRepository<User, String> {
         .orElseThrow(() -> new NotFoundException(ErrorMessage.User.ERR_NOT_FOUND_USERNAME,
             new String[]{currentUser.getUsername()}));
   }
+
+  List<User> findAllByRoleName(String roleName);
+
+  List<User> findAllByRoleNameAndIsLocked(String roleName, Boolean isLocked);
+
 
 }

@@ -34,33 +34,33 @@ public class User extends DateAuditing {
   @JsonIgnore
   private String password;
 
-  @Column(nullable = false)
+  @Column
   private String userCode;
 
-  @Column(nullable = false)
+  @Column
   private String email;
 
-  @Column(nullable = false)
+  @Column
   private String phoneNumber;
 
   @Nationalized
-  @Column(nullable = false)
+  @Column
   private String fullName;
 
   @Nationalized
-  @Column(nullable = false)
+  @Column
   private String gender;
 
-  @Column(nullable = false)
+  @Column
   private String birthday;
 
   @Nationalized
-  @Column(nullable = false)
+  @Column
   private String address;
 
   private String avatar;
 
-  @Column(nullable = false)
+  @Column
   private Boolean isLocked;
 
   //Link to table Role
@@ -77,4 +77,14 @@ public class User extends DateAuditing {
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
   @JsonIgnore
   private Set<Enrollment> enrollments = new HashSet<>();
+
+  //Link to table Record
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+  @JsonIgnore
+  private Set<Record> records = new HashSet<>();
+
+  //Link to table Classroom
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
+  @JsonIgnore
+  private Set<Classroom> classrooms = new HashSet<>();
 }

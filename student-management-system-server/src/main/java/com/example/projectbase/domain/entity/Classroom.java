@@ -40,8 +40,7 @@ public class Classroom extends FlagUserDateAuditing {
     @Column(nullable = false)
     private LocalDate startDate;
 
-    //Link to table Enrollment
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "classroom")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "classroom")
     @JsonIgnore
     private Set<Enrollment> enrollments = new HashSet<>();
 
@@ -49,4 +48,9 @@ public class Classroom extends FlagUserDateAuditing {
     @ManyToOne
     @JoinColumn(name = "subjectId", foreignKey = @ForeignKey(name = "FK_CLASSROOM_SUBJECT"))
     private Subject subject;
+
+    //Link to table User(Teacher)
+    @ManyToOne
+    @JoinColumn(name = "teacherId", foreignKey = @ForeignKey(name = "FK_CLASSROOM_TEACHER"))
+    private User teacher;
 }

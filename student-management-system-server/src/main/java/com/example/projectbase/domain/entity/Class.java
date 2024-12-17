@@ -32,7 +32,7 @@ public class Class extends FlagUserDateAuditing {
     private String classCode;
 
     @Column(nullable = false)
-    private int academicYear;
+    private String academicYear;
 
     //Link to table User
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userClass")

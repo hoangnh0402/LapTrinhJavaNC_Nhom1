@@ -38,7 +38,7 @@ public class ProjectBaseApplication {
     log.info("-------------------------START " + appName
         + " Application------------------------------");
     log.info("   Application         : " + appName);
-    log.info("   Url swagger-ui      : http://localhost:" + port + "/swagger-ui.html");
+    log.info("   Url swagger-ui      : http://54.251.134.72:" + port + "/swagger-ui.html");
     log.info("-------------------------START SUCCESS " + appName
         + " Application------------------------------");
   }
@@ -49,7 +49,8 @@ public class ProjectBaseApplication {
       //init role
       if (roleRepository.count() == 0) {
         roleRepository.save(new Role(null, RoleConstant.ADMIN, null));
-        roleRepository.save(new Role(null, RoleConstant.USER, null));
+        roleRepository.save(new Role(null, RoleConstant.STUDENT, null));
+        roleRepository.save(new Role(null, RoleConstant.TEACHER, null));
       }
       //init admin
       if (userRepository.count() == 0) {
@@ -71,5 +72,4 @@ public class ProjectBaseApplication {
       }
     };
   }
-
 }
