@@ -74,7 +74,7 @@ const items = [
     icon: IoMdKey,
     href: '/register',
     tooltip: 'Đăng kí học phần',
-    roles: [Role.STUDENT, Role.ADMIN],
+    roles: [Role.STUDENT],
   },
   {
     title: 'Xem thống kê điểm tích lũy',
